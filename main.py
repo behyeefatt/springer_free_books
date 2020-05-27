@@ -3,7 +3,7 @@ import pandas as pd
 from tqdm import tqdm
 #import wget
 
-folder = 'C:/code/download_books/download/'
+folder = '/Users/ianbeh/Downloads/'
 
 books = pd.read_excel('https://resource-cms.springernature.com/springer-cms/rest/v1/content/17858272/data/v3')
 
@@ -15,7 +15,7 @@ print('Download started.')
 for url, title, author in tqdm(books[['OpenURL', 'Book Title', 'Author']].values):
 # for url, title, author in tqdm(books[348:][['OpenURL', 'Book Title', 'Author']].values):
 
-    r = requests.get(url) 
+    r = requests.get(url)
     new_url = r.url
 
     new_url = new_url.replace('/book/','/content/pdf/')
